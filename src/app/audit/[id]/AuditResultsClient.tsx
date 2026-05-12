@@ -229,8 +229,8 @@ export default function AuditResultsClient({ audit }: { audit: AuditResult }) {
               You qualify for discounted AI credits via Credex
             </p>
             <p className="text-sm text-slate-400 mb-3">
-              At ${audit.totalMonthlySavings}/mo in savings, you're a strong candidate
-              for Credex's discounted credit program — same API, same SLA, 20–35% lower cost.
+             At ${audit.totalMonthlySavings}/mo in savings, you&apos;re a strong candidate
+              for Credex&apos;s discounted credit program — same API, same SLA, 20–35% lower cost.
             </p>
             <a
               href="https://credex.rocks"
@@ -298,7 +298,7 @@ export default function AuditResultsClient({ audit }: { audit: AuditResult }) {
               Get your full report by email
             </h3>
             <p className="text-sm text-slate-400 mb-4">
-              We'll send a PDF version with all recommendations and implementation steps.
+             We&apos;ll send a PDF version with all recommendations and implementation steps.
             </p>
           </>
         )}
