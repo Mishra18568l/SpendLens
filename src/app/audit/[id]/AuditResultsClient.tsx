@@ -223,7 +223,11 @@ export default function AuditResultsClient({ audit }: { audit: AuditResult }) {
             border: "1px solid rgba(34,197,94,0.25)",
           }}
         >
-          <AlertCircle size={20} style={{ color: "#22c55e", marginTop: 2, shrink: 0 }} />
+          <AlertCircle
+  size={20}
+  className="shrink-0"
+  style={{ color: "#22c55e", marginTop: 2 }}
+/>
           <div>
             <p className="font-600 text-white mb-1" style={{ fontFamily: "'Syne', sans-serif" }}>
               You qualify for discounted AI credits via Credex
