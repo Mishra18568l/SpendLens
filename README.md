@@ -1,82 +1,201 @@
-# SpendLens — AI Tool Spend Audit
+# SpendLens — AI Tool Spend Audit Platform
 
-SpendLens is a free web app that audits what startups and engineering teams pay for AI tools (Cursor, Claude, ChatGPT, GitHub Copilot, and more) and surfaces exact, finance-grade savings recommendations with one-click sharing. Built as a lead-generation tool for [Credex](https://credex.rocks), which sells discounted AI infrastructure credits.
+SpendLens is a modern AI cost optimization platform that helps startups, developers, and engineering teams analyze their spending on AI tools like Claude, ChatGPT, Cursor, GitHub Copilot, and more.
 
-**Live:** [https://spendlens.vercel.app](https://spendlens.vercel.app)
-
----
-
-## Screenshots
-
-> _Add 3+ screenshots or a Loom/YouTube screen recording link here before submission._
+The platform generates intelligent audit reports with personalized savings recommendations, pricing optimization insights, and shareable audit summaries.
 
 ---
 
-## Quick start
+## 🚀 Live Demo
 
-### Prerequisites
-- Node.js 20+
-- npm 9+
+🔗 Live Project: https://spendlens-kappa.vercel.app
 
-### Local development
+---
+
+## 📌 Features
+
+- 🔍 AI tool spend auditing
+- 📊 Personalized savings analysis
+- 💡 Smart optimization recommendations
+- 📈 Monthly & yearly savings calculations
+- 🤖 AI-generated financial summaries
+- 📧 Lead capture & email report flow
+- 🔗 Public shareable audit links
+- ⚡ Responsive modern UI
+- 🛡️ Spam protection with honeypot validation
+- ☁️ Vercel deployment ready
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- Next.js 14
+- React
+- TypeScript
+- Tailwind CSS
+
+### Backend / APIs
+- Next.js App Router APIs
+- Supabase
+- Anthropic API
+- Resend API
+
+### Deployment
+- Vercel
+
+---
+
+## 📂 Project Structure
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/spendlens.git
-cd spendlens
+src/
+ ├── app/
+ │    ├── api/
+ │    ├── audit/
+ │    └── page.tsx
+ │
+ ├── components/
+ ├── lib/
+ ├── types/
+ └── __tests__/
+```
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/Mishra18568l/SpendLens.git
+cd SpendLens
+```
+
+---
+
+### 2️⃣ Install Dependencies
+
+```bash
 npm install
-cp .env.example .env.local
-# Fill in .env.local (see Environment variables below)
+```
+
+---
+
+### 3️⃣ Configure Environment Variables
+
+Create a `.env.local` file in the root directory:
+
+```env
+ANTHROPIC_API_KEY=your_anthropic_api_key
+
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
+
+RESEND_API_KEY=your_resend_api_key
+```
+
+> The project also works without API keys using fallback mock summaries and in-memory storage.
+
+---
+
+### 4️⃣ Run the Development Server
+
+```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open:
 
-### Environment variables
-
-```env
-# Required for AI summary (free tier available)
-ANTHROPIC_API_KEY=sk-ant-...
-
-# Required for lead persistence
-NEXT_PUBLIC_SUPABASE_URL=https://xxxx.supabase.co
-SUPABASE_SERVICE_ROLE_KEY=eyJ...
-
-# Required for transactional email
-RESEND_API_KEY=re_...
+```bash
+http://localhost:3000
 ```
 
-All features work without these keys — the app uses in-memory storage and template summaries as fallbacks.
+---
 
-### Deploy to Vercel
+## ☁️ Deployment
+
+This project is deployed on Vercel.
+
+### Deploy your own version
 
 ```bash
 npx vercel
-# Set env vars in Vercel dashboard or via: vercel env add
 ```
 
-### Run tests
+---
+
+## 🧠 Key Engineering Decisions
+
+### ✅ Rule-Based Audit Engine
+All savings calculations are deterministic and handled through TypeScript logic to avoid inaccurate AI-generated financial outputs.
+
+### ✅ AI Used Only for Summaries
+Anthropic AI is used only for human-readable financial explanations and recommendations.
+
+### ✅ Fallback Architecture
+If APIs are unavailable, the application gracefully switches to:
+- in-memory storage
+- template AI summaries
+
+### ✅ Modern Next.js Architecture
+Implemented using:
+- App Router
+- API Routes
+- Server & Client Components
+- Dynamic Routes
+
+---
+
+## 📷 Screenshots
+
+### Homepage
+_Add screenshot here_
+
+### Audit Results Page
+_Add screenshot here_
+
+### AI Recommendations
+_Add screenshot here_
+
+---
+
+## 🧪 Testing
+
+Run tests using:
 
 ```bash
-npm test           # run all tests once
-npm run test:watch # watch mode
+npm test
+```
+
+Watch mode:
+
+```bash
+npm run test:watch
 ```
 
 ---
 
-## Decisions
+## 📈 Future Improvements
 
-1. **Next.js App Router over a SPA** — Server-side rendering lets each audit result URL have a unique `<meta>` OG tag without client-side hacks. The trade-off: slightly more complex routing and the need to split server/client components explicitly.
-
-2. **Pure rule-based audit engine, no AI for the math** — The audit logic is deterministic TypeScript. Using an LLM for the savings calculations would introduce hallucinated numbers that a CFO would reject. AI is used only for the narrative summary, where it adds value and errors are low-stakes.
-
-3. **Supabase with in-memory fallback** — Lets the app run fully locally without any external service, while shipping production-grade persistence. The fallback degrades gracefully (audits reset on server restart) without crashing.
-
-4. **nanoid for audit IDs** — Short (10 chars), URL-safe, and collision-resistant at the scale this will operate at. UUIDs would work but are ugly in share URLs.
-
-5. **Honeypot over CAPTCHA for spam protection** — hCaptcha adds friction for real users on the lead form. A hidden field catches bots with zero UX cost. Rate limiting (5 submissions/IP/hour) handles anything more sophisticated.
+- PDF report generation
+- Authentication system
+- Multi-user dashboards
+- Advanced analytics
+- Stripe billing integration
+- Team collaboration support
 
 ---
 
-## Architecture
+## 👨‍💻 Author
 
-See [ARCHITECTURE.md](./ARCHITECTURE.md) for the full system diagram and data flow.
+### Vikash Mishra
+
+- GitHub: https://github.com/Mishra18568l
+
+---
+
+## 📄 License
+
+This project is built for educational, portfolio, and assignment purposes.
