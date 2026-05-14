@@ -56,5 +56,5 @@ export async function POST(req: NextRequest) {
   // Persist to Supabase (or memory fallback)
   await saveAudit(fullResult);
 
-  return NextResponse.json({ id: fullResult.id, ...fullResult });
+ return NextResponse.json(fullResult);
 }
